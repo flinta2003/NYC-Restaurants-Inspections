@@ -28,7 +28,7 @@ Finally, all the transformed data were loaded into a database file in which I ma
 
 In the followings I will explain briefly the meaning all the queries I have made:
 
-1. 
+1. The most typical inspections type are displayed with the help of this query. Beside those lots of types of inspections that can be seen in the *inspections type* column it is significant to emphasize inspections often happen in multiple round to check if the restaurant fixed the issues.
 
 2. 
 
