@@ -4,12 +4,14 @@ In this project I had the opportunity to build a fully functional pipeline that 
 database by an API call. The data is available for anyone on the NYC OpenData website, please reach the website on the link below.
 `https://data.cityofnewyork.us/Health/DOHMH-New-York-City-Restaurant-Inspection-Results/43nn-pn8j/about_data`
 
+#### Data Cleaning
 After the extraction of the data **Python's Pandas library were used for the transformation**, let me mention some of the steps which were
 - all variables were set to the correct data type,
 - false NA-s (like "N/A" strings) were deleted,
 - redundant columns were dropped
 - data columns got the proper date format
 
+#### Optimizing Data Structure
 This Database contains several hundred thousand observations thus I thought splitting the database is necessary to be able to store it efficiently, it can be clearly seen that about half of the columns in the database connects directly to restaurants unique identifier named *camis*. I made a new table with these columns in which the camis became the unique identifier of the table. This table contains the columns can be seen below and only one record belongs to each restaurants.
 ```
 ["dba", "boro", "building", "street", "zipcode", "phone", "cuisine_description", "latitude",
@@ -21,5 +23,23 @@ In addition, I realized in the variable *cuisine_description* there are several 
 
 Finally, all the transformed data were loaded into a database file in which I made tables for them previously. If you would like to see the detailed ETL process please don't hesitate to look at the python code.
 
-## Query making
+## Analysing the Dataset
+**While observing the dataset numerous questions arised that I was able to answer. Firstly I made SQL queries to get the correct structure and aggregation of the data**. First and foremost I have to mention that the data is aggregated by years as well in the all queries since the database contains data of several years.
+
+In the followings I will explain briefly the meaning all the queries I have made:
+
+1. 
+
+2. 
+
+3. There were 2 queries that showed the riskiness eating out in each boroughs in New York by showing the average scores of restaurants in which authorities found a critical violation, not critical violation or doesn't find any kind of violation (not applicable). Moreover the 2nd table gives information about what proportion of restaurants belongs each violation categories in the boroughs of NYC.
+
+4. Ordinary many  franchises takes place in big cities beside the independent restaurants. In my opinion it is worth to look closely are these franchise restaurants safer for eating. As there were no information in the dataset if a restaurant is a part of a franchise or not I used a support table where I collected parts of the most well known franchises names and if a restaurant name consisted of any value in my support table it is said to be a franchise restaurant.
+
+You can see  the difference among franchise and independent restaurants on a time series chart where the average scores and the ration of critical violations can be seen for all years.
+
+6.
+
+
+
 
