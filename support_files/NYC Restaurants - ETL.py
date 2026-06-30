@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# ## ETL Process on NYC Restaurants Data
-
-# In[1]:
-
-
 import requests
 import numpy as np
 import pandas as pd
@@ -16,10 +8,6 @@ pd.set_option('display.max_columns', None)
 #Connecting to SQL
 connector = sqlite3.connect("NY_Restaurants.db")
 cursor = connector.cursor()
-
-
-# In[ ]:
-
 
 #Making the tables in SQLite
 
@@ -48,7 +36,7 @@ connector.commit()
 
 cursor.execute("""
     CREATE TABLE inspections (
-    inspection_id INTEGER,
+    violation_id INTEGER,
     restaurant_id INTEGER,
     grade TEXT CHECK (grade IN ('N', 'A', 'B', 'C', 'Z', 'P')),
     grade_date INTEGER,
@@ -77,13 +65,7 @@ FOREIGN KEY (restaurant_id) REFERENCES restaurants(camis)
 connector.commit()
 
 
-# ### Data Extraction wiht API
-
-# In[29]:
-
-
-#Downloading new data
-
+# Data Extraction wiht API
 data = []
 limit = 50000
 offset = 0
@@ -100,11 +82,7 @@ while True:
 data = pd.DataFrame(data)
 
 
-# ### Data Cleaning
-
-# In[31]:
-
-
+# Data Cleaning
 data.drop(columns = ["location", "record_date"] , inplace = True) # redundand column
 
 data["phone"] = data["phone"].str.replace (" ", "", regex = False)
@@ -128,10 +106,7 @@ data[["latitude", "longitude"]] = data[["latitude", "longitude"]].apply(pd.to_nu
 data[["camis", "zipcode", "score", "community_board", "council_district", "census_tract", "bin", "bbl"]] = data[["camis", "zipcode", "score", "community_board", "council_district", "census_tract", "bin", "bbl"]].apply(pd.to_numeric).astype("Int64")
 
 
-# ### Data Loading
-
-# In[33]:
-
+# Data Loading
 
 #Making a dataframe for each tables
 restaurants_variables = ["dba", "boro", "building", "street", "zipcode", "phone", "cuisine_description", "latitude",
@@ -146,12 +121,7 @@ inspections.rename(columns = {"camis": "restaurant_id"}, inplace = True)
 restaurants.to_sql("restaurants", connector, if_exists = "append", index = False)
 inspections.to_sql("inspections", connector, if_exists = "append", index = False)
 
-
-# In[34]:
-
-
 # Cuisine types correction
-
 cuisine_types = restaurants[["camis", "cuisine_description"]].copy()
 cuisine_types["cuisine_description"] = cuisine_types["cuisine_description"].str.split("/")
 cuisine_types = cuisine_types.explode("cuisine_description")
@@ -161,19 +131,11 @@ cuisine_types.rename(columns = {"camis": "restaurant_id", "cuisine_description":
 cuisine_types.to_sql("cuisine_types", connector, if_exists = "append", index = False)
 
 
-# ### Table Reset
-
-# In[27]:
-
-
+# Table Reset
 cursor.execute("DELETE FROM restaurants")
 cursor.execute("DELETE FROM inspections")
 cursor.execute("DELETE FROM cuisine_types")
 connector.commit()
-
-
-# In[ ]:
-
 
 connector.close()
 
