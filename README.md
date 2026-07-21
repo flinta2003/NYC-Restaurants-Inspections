@@ -26,11 +26,11 @@ Finally, all the transformed data were loaded into a database file in which I ma
 ## Analysing the Dataset
 **While observing the dataset numerous questions arised that I was able to answer. Firstly I made SQL queries to get the correct structure and aggregation of the data**. First and foremost I have to mention that the data is aggregated by years as well in the all queries since the database contains data of several years.
 
-In the followings I will explain briefly the meaning all the queries I have made:
+In the followings I will explain briefly what all the queries were made for:
 
-1. The most typical inspections type are displayed with the help of this query. Beside those lots of types of inspections that can be seen in the *inspections type* column it is significant to emphasize inspections often happen in multiple round to check if the restaurant fixed the issues.
+1. The most typical inspections type are displayed with the help of this query. Beside those lots of types of inspections that can be seen in the *inspections type* column it is significant to emphasize inspections often happen in multiple round to check if the restaurant fixed the issues. The types of each round can be seen in the *inspection round* column.
 
-2. 
+2. There has a chance to see correlation among the cuisine of a restaurant and the neighbourhood where the restaurant is and the number of critical violations
 
 3. There were 2 queries that showed the riskiness eating out in each boroughs in New York by showing the average scores of restaurants in which authorities found a critical violation, not critical violation or doesn't find any kind of violation (not applicable). Moreover the 2nd table gives information about what proportion of restaurants belongs each violation categories in the boroughs of NYC.
 
