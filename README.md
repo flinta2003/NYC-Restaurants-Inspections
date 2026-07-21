@@ -28,17 +28,19 @@ Finally, all the transformed data were loaded into a database file in which I ma
 
 In the followings I will explain briefly what all the queries were made for:
 
-1. **Typical Inspections:** The most typical inspections type are displayed with the help of this query. Beside those lots of types of inspections that can be seen in the *inspections type* column it is significant to emphasize inspections often happen in multiple round to check if the restaurant fixed the issues. The types of each round can be seen in the *inspection round* column.
+1. **Typical Inspections:** The most typical inspections type are displayed with the help of this query. Beside those types of inspections that can be seen in the *inspections type* column it is significant to emphasize inspections often happen in multiple round to check if the restaurant fixed the issues. The types of each round can be seen in the *inspection round* column.
 
-2. **Cuisine Borough Pattern:** There has a chance to see correlation among the cuisine of a restaurant and the neighbourhood where the restaurant is and the number of critical violations
+2. **Cuisine Borough Pattern:** This query help to show the connection among the cuisine of the restaurant, the neighbourhood where the restaurant is and the number of critical violations that were found during the inspection. Thanks to this query the riskyness of each type of cousine can also be seen beside the boroughs' riskyness.
 
-3. **Risky Boroughs Critical Ratio & Average Score:** There were 2 queries that showed the riskiness eating out in each boroughs in New York by showing the average scores of restaurants in which authorities found a critical violation, not critical violation or doesn't find any kind of violation (not applicable). Moreover the 2nd table gives information about what proportion of restaurants belongs each violation categories in the boroughs of NYC.
+3. **Risky Boroughs Critical Ratio & Average Score:** There were 2 queries that showed the riskyness of eating out in each boroughs in New York by showing the average scores of restaurants in which authorities found a critical violation, not critical violation or doesn't find any kind of violation (not applicable). Moreover the 2nd query gives information about the proportion of restaurants that belongs to each violation categories in the boroughs of NYC.
 
-4. **Franchise Safetyness:** Ordinary many  franchises takes place in big cities beside the independent restaurants. In my opinion it is worth to look closely are these franchise restaurants safer for eating. As there were no information in the dataset if a restaurant is a part of a franchise or not I used a support table where I collected parts of the most well known franchises names and if a restaurant name consisted of any value in my support table it is said to be a franchise restaurant.
+4. **Franchise Safetyness:** Ordinary many franchises takes place in big cities beside the independent restaurants. In my opinion it is worth to look closely whether these franchise restaurants are safer for eating out or not. Since there were no information in the dataset if a restaurant is a part of a franchise or not I had to use a support table in which I collected parts of the most well known franchises names and if a restaurant's name consisted of any value in this table it is said to be a franchise restaurant.
 
-You can see  the difference among franchise and independent restaurants on a time series chart where the average scores and the ration of critical violations can be seen for all years.
+You can see the difference among franchise and independent restaurants on a time series chart where the average scores and the ratio of critical violations can be seen for all years.
 
-6.**Risky Areas:** 
+6.**Risky Areas:** Presumably there are part of New York where it can be more dangerous to eat out. In my last query I collected the geolocation of all the restaurants and the critical violation number belongs to each restaurants.
+
+Altogether it can be said this project provided an opportunity to be able to do this data analysis from the extranction of the data to making visualizations.
 
 
 
