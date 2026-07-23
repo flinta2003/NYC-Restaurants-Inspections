@@ -36,12 +36,11 @@ In the followings I will explain briefly what all of the queries were made for:
 
 4. **Franchise Safetyness:** Ordinarily many franchises operate in big cities alongside independent restaurants. In my opinion it is worth looking closely whether these franchise restaurants are safer for eating out or not. Since there were no information in the dataset if a restaurant is a part of a franchise or not I had to use a support table in which I collected parts of the most well known franchises names and if a restaurant's name consisted of any value in this table it is said to be a franchise restaurant.
 
-You can see the difference among franchise and independent restaurants on a time series chart where the average scores and the ratio of critical violations can be seen for all years.
+    You can see the difference among franchise and independent restaurants on a time series chart where the average scores and the ratio of critical violations can be seen for all years.
 
-5.**Risky Areas:** Presumably there are parts of New York where it can be more dangerous to eat out. In my last query I collected the geolocation of all the restaurants and the critical violation number belongs to each restaurants thus users can examine the number of critical violations for each restaurant yearly.
+5. **Risky Areas:** Presumably there are parts of New York where it can be more dangerous to eat out. In my last query I collected the geolocation of all the restaurants and the critical violation number belongs to each restaurants thus users can examine the number of critical violations for each restaurant yearly.
 
-Altogether it can be said this project provided an opportunity to be able to do this data analysis from the extranction of the data to making visualizations.
-
+Overall, this project provided a great opportunity to execute an end-to-end data analysis workflow, from initial data extraction to the final visualizations of the data.
 
 
 
